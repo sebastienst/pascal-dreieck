@@ -1,20 +1,18 @@
-function printUbung(MaxGrosse, Anzeige)
+function printUbung(Annonce)
 {
-    var wert = document.getElementById(MaxGrosse).value;
-    var pascal = PascalDreieck(wert);
-    var leerstelle = "";
-    var dimension = String(pascal[wert - 1][Math.floor(wert /2)]).length; 
-    for (var i = wert - 1; i >= 0; i--)
+   var i;
+   var j;
+   var platz = &nbsp;
+   var leer ="";
+   for (i = wert - 1; i >= 0; i--)
     {
-        var leerstelle = "&nbsp;".repeat((wert - i) * dimension)
-        for (var j = 0; j <= i; j++)
-        {
-           leerstelle += " " + "&nbsp;".repeat(dimension - String(pascal[i][j]).length) 
-           + pascal[i][j] + "&nbsp;".repeat(dimension - String(pascal[i][j]).length); 
+        leer += leer + pascalResult[i][j] + leer;
+        for (var j = 0; j <= i; j++){
+            leer += leer + pascalResult[i][j] + leer;
         }
-        document.getElementById(Anzeige).innerHTML = "</br>" + leerstelle 
-        + document.getElementById(Anzeige).innerHTML;
+        document.getElementById(Annonce).innerHTML = "</tr>" + leer ++ document.getElementById(Anzeige).innerHTML;
     }
+   
 }
 
 
@@ -40,8 +38,4 @@ function PascalDreieck(wert){
 }
 
 
-var button = document.getElementById("cal");
-button.onclick = function()
-{
-    printUbung("line", "pascal3");
-};
+
